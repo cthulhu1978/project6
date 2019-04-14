@@ -13,20 +13,19 @@ void handler(int signum)
       numSigs1++;
       if (numSigs1 >= 4) {
         printf("terminating due to 4 SIGUSR1 signals");
-        exit(1);
+        exit(0);
         }
       } else if(signum == SIGUSR2){
         printf("received SIGUSR2\n");
-        exit(1);
+        exit(0);
       } else if(signum == SIGINT){
         printf("Keyboard Interrupt!\n");
-        exit(1);
+        exit(0);
       }
 }
 
 int main(int argc, char *argv[]) {
   alarm(90);
-  //printf("pid of p6 process: %d \n",getpid() );
 
   if (argc > 1  &&  strcmp(argv[1],"-hw") == 0){
     printf("hello world\n");
